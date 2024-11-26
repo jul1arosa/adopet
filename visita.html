@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de visita - Abrigo de Animais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: rgb(34, 33, 33);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: rgb(32, 32, 32);
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #6a28a7;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #5f2188;
+        }
+        .mensagem-sucesso {
+            color: #6328a7;
+            font-size: 16px;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+    <script>
+        function enviarMensagem(event) {
+            event.preventDefault(); 
+            document.getElementById("mensagemSucesso").style.display = "block"; 
+            document.getElementById("formContato").reset(); 
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Agende uma visita</h1>
+        <p>Gostaria de visitar um dos abrigos? Preencha suas informações e nós entraremos em contato para definir o melhor horário!</p>
+        
+        <label for="abrigo">Escolha um abrigo:</label>
+        <br>
+        
+        <select name="abrigo" id="abrigo">
+            <option value="vivabicho">Viva Bicho (Balneário Camboriú)</option>
+            <option value="aprablu">Aprablu (Blumenau)</option>
+            <option value="hachiong">Hachi ONG (Blumenau)</option>
+            <option value="arba">Arba (Brusque)</option>
+            <option value="ongfaunamiga">Faunamiga (Capinzal)</option>
+            <option value="amparoanimal">Amparo animal (Chapecó)</option>
+            <option value="sosquatropatas">Sos quatro patas (Chapecó)</option>
+            <option value="amigosdosbichos">Amigos dos bichos (Chapecó)</option>
+            <option value="sosviralata">Sos vira-lata (Criciúma)</option>
+            <option value="apadrinheumpet">Apadrinhe um pet (Florianópolis)</option>
+            <option value="ficacaomigo">Fica cãomigo (Florianópolis)</option>
+            <option value="eobicho">Instituto é o bicho (Florianópolis)</option>
+            <option value="obaorganizacaobemanimal">Oba! Orgamização bem-animal (Florianópolis)</option>
+            <option value="superviralata">Super vira-lata (Florianópolis)</option>
+            <option value="patinhacarente">Patinha carente (Florianópolis)</option>
+            <option value="republicadosviralatas">República dos vira-latas (Florianópolis)</option>
+            <option value="agapa">Agapa (Gaspar)</option>
+            <option value="pataguabiruba">Pata guabiruba (Guabiruba)</option>
+            <option value="ongamigobicho">ONG amigo bicho (Içara)</option>
+            <option value="entrecaesegatos">Entre cães e gatos (Indaial)</option>
+            <option value="amoranimal">Amor animal (Itajaí)</option>
+            <option value="ajapra">AJAPRA (Jaraguá do sul)</option>
+            <option value="abrigoanimal">Abrigo animal (Joinville)</option>
+            <option value="frada">Frada (Joinville)</option>
+            <option value="alpa">Alpa (Lages)</option>
+            <option value="probichos">Pró-bichos (Nagevantes)</option>
+            <option value="patasfelizes">Patas felizes (Nova Veneza)</option>
+            <option value="aprap">APRAP (Palhoça)</option>
+            <option value="sosbichourbano">SOS bicho urbano (Passo de torres)</option>
+            <option value="anjodepatas">Anjo de patas (Porto Belo)</option>
+            <option value="apad">APAD (Rio do sul)</option>
+            <option value="canilsaojose">Canil São José (São José)</option>
+            <option value="formiguihnas">Formiguinhas de luz (São José)</option>
+            <option value="amigobicho">Grupo amigo bicho (São Miguel do Oeste)</option>
+            <option value="movimentacao">ONG movimenta cão (Tubarão)</option>
+            <option value="ongraca">ONG raça (Urussanga)</option>
+        </select>
+         <br>
+
+    
+
+        <label for="turnovisita">Em que turno gostaria de visitar?:</label>
+        <br>
+        <select name="turnovisita" id="turnovisita">
+        <option value="matutino">Matutino</option>
+        <option value="vespertino">Vespertino</option>
+        </select>
+
+        <form id="formContato" onsubmit="enviarMensagem(event)">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone">
+
+            <button type="submit">Agendar</button>
+        </form>
+        
+        <p id="mensagemSucesso" class="mensagem-sucesso">Sua visita foi agendada com sucesso!</p>
+    </div>
+</body>
+</html>

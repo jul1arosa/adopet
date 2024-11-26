@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Adopet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf3e0;
+            margin: 0;
+            padding: 0;
+            color: #5D4037;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        h1 {
+            color: #8D6E63;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #6D4C41;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #5D4037;
+            font-weight: 600;
+            text-align: left;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        button {
+            background-color: #A1887F;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #8D6E63;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+        .mensagem-sucesso {
+            color: #8D6E63;
+            font-size: 1em;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+    <script>
+        function enviarMensagem(event) {
+            event.preventDefault();
+            document.getElementById("mensagemSucesso").style.display = "block";
+            document.getElementById("formContato").reset();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+            <img src="ADOPET.png" alt="Logo Adopet">
+        <h1>Entre em Contato</h1>
+        <p>Tem alguma dúvida ou gostaria de ajudar? Envie uma mensagem, e nós entraremos em contato!</p>
+       
+        <form id="formContato" onsubmit="enviarMensagem(event)">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone">
+
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+       
+        <p id="mensagemSucesso" class="mensagem-sucesso">Sua mensagem foi enviada com sucesso!</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login - Adopet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf3e0;
+            margin: 0;
+            padding: 0;
+            color: #5D4037;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container img {
+            width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .container h2 {
+            font-size: 2em;
+            font-weight: 600;
+            color: #8D6E63;
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            margin-bottom: 20px;
+            color: #6D4C41;
+            font-size: 1.1em;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #5D4037;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .options input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .options a {
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        .options a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-entrar {
+            width: 100%;
+            padding: 12px;
+            background-color: #A1887F;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-entrar:hover {
+            background-color: #8D6E63;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="ADOPET.png" alt="Logo Adopet">
+        <h2>Entrar</h2>
+        <p>Preencha os dados abaixo para acessar sua conta</p>
+        <form id="loginForm">
+            <label for="tipo_usuario">Você é:</label>
+            <select name="tipo_usuario" id="tipo_usuario">
+                <option value="fisica">Pessoa Física</option>
+                <option value="juridica">Pessoa Jurídica</option>
+            </select>
+
+            <div id="campo_id" style="display: none;">
+                <label for="id_empresa">ID da Empresa:</label>
+                <input type="text" name="id_empresa" id="id_empresa">
+            </div>
+
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" required>
+
+            <div class="options">
+                <input type="checkbox" name="lembrar"> Lembrar-me
+                <a href="recuperar_senha.php">Esqueceu a senha?</a>
+            </div>
+
+            <button type="button" class="btn-entrar" id="entrarButton">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('tipo_usuario').addEventListener('change', function () {
+            const campoId = document.getElementById('campo_id');
+            campoId.style.display = this.value === 'juridica' ? 'block' : 'none';
+        });
+
+        document.getElementById('entrarButton').addEventListener('click', function () {
+            const tipoUsuario = document.getElementById('tipo_usuario').value;
+
+            if (tipoUsuario === 'fisica') {
+                window.location.href = 'adocao.html';
+            } else if (tipoUsuario === 'juridica') {
+                window.location.href = 'cadastro_abrigo.html';
+            }
+        });
+    </script>
+</body>
+</html>

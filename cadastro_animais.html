@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro do Animal - Adopet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #faf3e0;
+            color: #5D4037;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        h1 {
+            color: #8D6E63;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #6D4C41;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #5D4037;
+            font-weight: 600;
+            text-align: left;
+        }
+        input, textarea, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        button {
+            background-color: #A1887F;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #8D6E63;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+        .mensagem-sucesso {
+            color: #8D6E63;
+            font-size: 1em;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="ADOPET.png" alt="Logo Adopet">
+        <h1>Cadastro do Animal</h1>
+        <p>Por favor, preencha as informações abaixo para cadastrar um novo animal no abrigo.</p>
+       
+        <form id="formAnimal">
+            <label for="nome">Nome do Animal:</label>
+            <input type="text" id="nome" name="nome" required>
+
+
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" name="idade" required>
+
+
+            <label for="porte">Porte:</label>
+            <select id="porte" name="porte" required>
+                <option value="pequeno">Pequeno</option>
+                <option value="medio">Médio</option>
+                <option value="grande">Grande</option>
+            </select>
+
+
+            <label>Sexo:</label>
+            <div class="radio-group">
+                <input type="radio" id="feminino" name="sexo" value="feminino" required>
+                <label for="feminino">Fêmea</label>
+                <input type="radio" id="masculino" name="sexo" value="masculino" required>
+                <label for="masculino">Macho</label>
+            </div>
+
+
+            <label>Castrado:</label>
+            <div class="radio-group">
+                <input type="radio" id="sim" name="castrado" value="sim" required>
+                <label for="sim">Sim</label>
+                <input type="radio" id="nao" name="castrado" value="nao" required>
+                <label for="nao">Não</label>
+            </div>
+
+
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto" name="foto" required>
+
+
+            <button type="button" onclick="cadastrarAnimal()">Cadastrar</button>
+        </form>
+       
+        <p id="successMessage" class="mensagem-sucesso">Cadastro realizado com sucesso!</p>
+    </div>
+
+
+    <script>
+        function cadastrarAnimal() {
+            document.getElementById("successMessage").style.display = "block";
+            document.getElementById("formAnimal").reset();
+        }
+    </script>
+</body>
+</html>
